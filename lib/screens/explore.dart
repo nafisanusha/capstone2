@@ -53,7 +53,7 @@ class ExhibitionCard extends StatelessWidget {
           const SizedBox(height: 10), Text(exhibition.title, style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: 12), Text(exhibition.summary), const SizedBox(height: 18),
           Text('${exhibition.duration} min · ${exhibition.location}'), const SizedBox(height: 12),
-          const Row(children: [Text('Discover exhibition'), SizedBox(width: 8), Icon(Icons.arrow_forward, size: 20)]),
+          const Row(children: [Expanded(child: Text('Discover exhibition')), SizedBox(width: 8), Icon(Icons.arrow_forward, size: 20)]),
         ])),
       ])));
 }

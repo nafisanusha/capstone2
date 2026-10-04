@@ -36,8 +36,9 @@ class Surface extends StatelessWidget {
   const Surface({super.key, required this.child, this.color = Colors.white});
   final Widget child;
   final Color color;
-  @override Widget build(BuildContext context) => Container(width: double.infinity,
-    padding: const EdgeInsets.all(24), decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)), child: child);
+  @override Widget build(BuildContext context) => SizedBox(width: double.infinity,
+    child: Material(color: color, borderRadius: BorderRadius.circular(20),
+      child: Padding(padding: const EdgeInsets.all(24), child: child)));
 }
 
 /// Original geometric artwork drawn in code; no museum collection images used.

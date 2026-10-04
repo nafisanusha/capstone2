@@ -2,7 +2,7 @@
 
 A Flutter proof of concept for **Museum Gateway: A Self-Service Visitor Experience Platform**, a capstone project with The Wolfsonian-FIU.
 
-One Dart codebase targets **iPhone, iPad, and Android phones/tablets**. The app is an early working-flow implementation awaiting runtime verification, not a finished museum system.
+One Dart codebase targets **iPhone, iPad, and Android phones/tablets**. The app is an early working-flow prototype, not a finished museum system.
 
 ## Included
 
@@ -60,28 +60,29 @@ The debug APK is generated at `build/app/outputs/flutter-apk/app-debug.apk`. Thi
 
 ## GitHub: private repository `capstone2`
 
-Source repository: https://github.com/nafisanusha/capstone2 (private). For future changes, you can use the connected GitHub integration or an authenticated GitHub CLI. To publish a separate copy from another account:
+Source repository: [nafisanusha/capstone2](https://github.com/nafisanusha/capstone2) (private).
+
+For ongoing Git development, clone the published repository into a new folder using GitHub Desktop or authenticated Git:
 
 ```sh
-gh auth login
-gh repo create capstone2 --private --source=. --remote=origin --push
+git clone https://github.com/nafisanusha/capstone2.git
+cd capstone2
 ```
 
-Alternatively create an empty **private** `capstone2` on GitHub, then use the exact repository URL:
+The original local scaffold was uploaded through the GitHub integration, so its local Git history differs from the published repository. Use a fresh clone for future pushes.
 
-```sh
-git remote add origin https://github.com/YOUR_USERNAME/capstone2.git
-git push -u origin main
-```
-
-GitHub Actions will run after publishing. Download the Android demo APK from the workflow artifacts if that build succeeds. These workflows have been written, but have not run yet. GitHub hosts the source and build artifacts; App Store/Play Store publishing is a separate later step.
+GitHub Actions runs analysis, tests, and native builds after each push. Download the Android demo APK from the workflow artifacts when the Android job succeeds. GitHub hosts the source and build artifacts; App Store/Play Store publishing is a separate later step.
 
 ## Verification status
 
-- Dart syntax parsed for all source and test files with an independent parser.
-- Xcode project format and XML/plist/JSON assets checked locally.
+[Passing workflow run](https://github.com/nafisanusha/capstone2/actions/runs/37220637563) for app commit `e1ccebb` (October 4, 2026).
+
+- GitHub Actions: Flutter analysis passed and all **12 unit/widget tests passed**, including phone/tablet navigation with 1.6× text scaling.
+- iOS simulator debug compilation succeeded in GitHub Actions.
+- Android debug APK compilation succeeded; the demo APK is available in workflow artifacts.
+- Dart syntax and native XML/plist/JSON assets checked locally.
 - Flutter native project files derived from the official Flutter 3.47.6 templates.
-- **Not verified:** Dart analysis, Flutter tests, visual layout, simulator execution, and native builds. Dart aborts in Codex's filesystem sandbox when reading CPU information through a blocked system call. Run the commands above in your regular terminal or use GitHub Actions after publishing.
+- Manual simulator/device execution, visual review, screen-reader testing, and real kiosk trials remain pending. Local Flutter execution in Codex was blocked by a sandbox system-call restriction; the analysis/tests/build evidence comes from GitHub Actions.
 
 ## Project organization
 
